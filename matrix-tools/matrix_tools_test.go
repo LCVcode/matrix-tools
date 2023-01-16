@@ -145,3 +145,27 @@ func TestIsVector(t *testing.T) {
     result = m.IsVector()
     AssertEqualHelper(t, expected, result)
 }
+
+func TestIsSquare(t *testing.T) {
+    m := NewMatrix([][]float64{{1}})
+    expected := true
+    result := m.IsSquare()
+    AssertEqualHelper(t, expected, result)
+
+    m = NewMatrix([][]float64{{1, 2}, {3, 4}})
+    result = m.IsSquare()
+    AssertEqualHelper(t, expected, result)
+
+    m = NewMatrix([][]float64{{1, 2, 3}, {3, 4, 5}, {5, 6, 7}})
+    result = m.IsSquare()
+    AssertEqualHelper(t, expected, result)
+
+    m = NewMatrix([][]float64{{1}, {3}})
+    expected = false
+    result = m.IsSquare()
+    AssertEqualHelper(t, expected, result)
+
+    m = NewMatrix([][]float64{{1, 2}, {3, 4}, {5, 6}})
+    result = m.IsSquare()
+    AssertEqualHelper(t, expected, result)
+}

@@ -90,3 +90,7 @@ func (m Matrix) Dot(n Matrix) float64 {
 func (m Matrix) IsVector() bool {
     return m.cols == 1 || m.rows == 1
 }
+
+func (m Matrix) IsSquare() bool {
+    return m.cols == m.rows
+}

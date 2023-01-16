@@ -86,3 +86,7 @@ func (m Matrix) Dot(n Matrix) float64 {
     }
     return sum
 }
+
+func (m Matrix) IsVector() bool {
+    return m.cols == 1 || m.rows == 1
+}

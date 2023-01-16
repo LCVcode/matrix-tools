@@ -125,3 +125,23 @@ func TestDot(t *testing.T) {
     result = m.Dot(n)
     AssertEqualHelper(t, expected, result)
 }
+
+func TestIsVector(t *testing.T) {
+    m := NewMatrix([][]float64{{1}})
+    expected := true
+    result := m.IsVector()
+    AssertEqualHelper(t, expected, result)
+
+    m = NewMatrix([][]float64{{1, 2, 3, 4}})
+    result = m.IsVector()
+    AssertEqualHelper(t, expected, result)
+
+    m = NewMatrix([][]float64{{1}, {2}, {3}, {4}})
+    result = m.IsVector()
+    AssertEqualHelper(t, expected, result)
+
+    m = NewMatrix([][]float64{{1, 2}, {2, 3}, {3, 4}, {4, 5}})
+    expected = false
+    result = m.IsVector()
+    AssertEqualHelper(t, expected, result)
+}
